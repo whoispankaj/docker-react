@@ -2,4 +2,7 @@ sudo: required
 services:
     - docker
 before_install:
-    - docker build -f Dockerfile.dev -t whoispankaj\docker-react . 
+    - docker build -f Dockerfile.dev -t whoispankaj/docker-react .
+
+script:
+    - docker run -e CI=true whoispankaj/docker-react npm run test -- --coverage
